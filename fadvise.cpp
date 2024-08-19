@@ -5,6 +5,8 @@
 
 #include <napi.h>
 
+#include <string>
+
 using namespace Napi;
 
 Value posix_fadvise(const CallbackInfo &info) {
@@ -31,14 +33,14 @@ Value posix_fadvise(const CallbackInfo &info) {
   off_t start = args[1].Int64Value();
   off_t length = args[2].Int64Value();
   int advice = args[3].Int32Value();
-  ret = posix_fadvise(fd, fd, start, length, advice);
+  ret = posix_fadvise(fd, start, length, advice);
   #endif
 
   return Number::New(env, (double)ret);
 }
 
 Object Init(Env env, Object exports) {
-  exports.Set(String::New(env, "posix_fadvise"), Function::New(env, posix_fadvise));
+  exports.Set(String::New(env, "posix_fadvise"), Function::New<posix_fadvise>(env));
   return exports;
 }
 
