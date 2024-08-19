@@ -5,6 +5,7 @@ try {
 } catch (e) {
   module.exports = {
     posix_fadvise: function (fd, offset, length, advice) {},
+    failed_to_load: true,
   };
 }
 
