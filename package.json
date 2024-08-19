@@ -1,6 +1,6 @@
 {
   "name": "fadvise",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Native Node.js bindings for the posix_fadvise() API",
   "main": "index.js",
   "author": "Jimb Esser (https://github.com/Jimbly)",
@@ -27,7 +27,7 @@
   },
   "scripts": {
     "publish_build": "prebuild -t 3 -r napi",
-    "install": "prebuild-install --verbose --runtime napi || node-gyp rebuild",
+    "install": "prebuild-install --verbose --runtime napi || node-gyp rebuild || (exit 0)",
     "test": "node-gyp build && node ./test.js"
   },
   "gypfile": true,
