@@ -1,0 +1,17 @@
+Native Node.js bindings for the `posix_fadvise()` function on Linux
+============================
+
+Usage:
+```javascript
+const fadvise = require('fadvise');
+const fs = require('fs');
+
+let fd = fs.openSync('./test.tmp', 'a');
+fs.writeSync(fd, 'hundreds of megabytes');
+fs.fsync(fd, function () {
+  fadvise.posix_fadvise(fd, 0, 0, fadvise.POSIX_FADV_DONTNEED);
+  fs.closeSync(fd);
+});
+```
+
+See [posix_fadvise(7)](https://man7.org/linux/man-pages/man2/posix_fadvise.2.html) for details.
