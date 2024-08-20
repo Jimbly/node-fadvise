@@ -16,4 +16,4 @@ fs.fsync(fd, function () {
 
 In the example above, `top` and [nocache](https://github.com/Feh/nocache)'s `cachestats test.tmp` should indicate 0 (additional) pages in buffers/cache.
 
-See [posix_fadvise(7)](https://man7.org/linux/man-pages/man2/posix_fadvise.2.html) for details.
+See [posix_fadvise(2)](https://man7.org/linux/man-pages/man2/posix_fadvise.2.html) for details.
